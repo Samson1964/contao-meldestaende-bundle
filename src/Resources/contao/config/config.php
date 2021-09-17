@@ -1,17 +1,18 @@
 <?php
 
 $GLOBALS['BE_MOD']['content']['meldestaende'] = array(
-	'tables'      => array('tl_meldestaende'),
-	'icon'        => 'bundles/contaomeldestaende/images/icon.png',
+	'tables'         => array('tl_meldestaende'),
+	'icon'           => 'bundles/contaomeldestaende/images/icon.png',
+	'import'         => array('Schachbulle\ContaoMeldestaendeBundle\Classes\Import', 'run'),
 );
 
 /**
  * Frontend-Module
  */
-//$GLOBALS['FE_MOD']['titelnormen'] = array
-//(
-//	'titelnormen_wertungsreferenten' => 'Schachbulle\ContaotitelnormenBundle\Modules\Wertungsreferenten',
-//);  
+$GLOBALS['FE_MOD']['titelnormen'] = array
+(
+	'meldestaende' => 'Schachbulle\ContaoMeldestaendeBundle\Modules\Meldestaende',
+);  
 
 /**
  * Inhaltselemente

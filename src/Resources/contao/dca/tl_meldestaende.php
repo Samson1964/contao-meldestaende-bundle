@@ -26,19 +26,25 @@ $GLOBALS['TL_DCA']['tl_meldestaende'] = array
 	(
 		'sorting' => array
 		(
-			'mode'                    => 1,
+			'mode'                    => 2,
 			'fields'                  => array('dateidatum'),
 			'flag'                    => 1,
 			'panelLayout'             => 'filter;sort,search,limit',
 		),
 		'label' => array
 		(
-			'fields'                  => array('dateiname','titel'),
+			'fields'                  => array('dateidatum','dateiname','titel'),
 			'showColumns'             => true,
 			'format'                  => '%s',
 		),
 		'global_operations' => array
 		(
+			'import' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_meldestaende']['import'],
+				'href'                => 'key=import',
+				'icon'                => 'bundles/contaomeldestaende/images/import.png'
+			),
 			'all' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
@@ -108,9 +114,15 @@ $GLOBALS['TL_DCA']['tl_meldestaende'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_meldestaende']['tstamp'],
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
+		'sorting' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+		),
 		'dateidatum' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_meldestaende']['dateidatum'],
+			'flag'                    => 6,
+			'sorting'                 => true,
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'dateiname' => array
@@ -121,7 +133,12 @@ $GLOBALS['TL_DCA']['tl_meldestaende'] = array
 			'sorting'                 => true,
 			'flag'                    => 1,
 			'search'                  => false,
-			'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'long clr'),
+			'eval'                    => array
+			(
+				'mandatory'           => true,
+				'maxlength'           => 255,
+				'tl_class'            => 'long clr'
+			),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'titel' => array
