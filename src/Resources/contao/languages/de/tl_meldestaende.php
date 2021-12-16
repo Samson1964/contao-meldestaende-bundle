@@ -15,7 +15,7 @@ $GLOBALS['TL_LANG']['tl_meldestaende']['published'] = array('Veröffentlichen', 
  * Buttons für Operationen
  */
 
-$GLOBALS['TL_LANG']['tl_meldestaende']['categories'] = array('Titel verwalten', 'Titel verwalten');
+$GLOBALS['TL_LANG']['tl_meldestaende']['import'] = array('Import', 'Meldestandsdatei importieren');
 $GLOBALS['TL_LANG']['tl_meldestaende']['new'] = array('Neuer Meldestand', 'Neuen Meldestand anlegen');
 $GLOBALS['TL_LANG']['tl_meldestaende']['edit'] = array('Tiel/Normen bearbeiten', 'Titel/Normen des Meldestands %s bearbeiten');
 $GLOBALS['TL_LANG']['tl_meldestaende']['editheader'] = array('Meldestand bearbeiten', 'Meldestand %s bearbeiten');

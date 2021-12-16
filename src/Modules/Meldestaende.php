@@ -66,6 +66,11 @@ class Meldestaende extends \Module
 				$daten .= '<table>';
 				foreach($content as $zeile)
 				{
+					if(!\Schachbulle\ContaoHelperBundle\Classes\Helper::is_utf8($zeile))
+					{
+						// String ist kein UTF-8, jetzt unwandeln
+						$zeile = utf8_encode($zeile);
+					}
 					if($row) $zelle = 'td';
 					else $zelle = 'th';
 					$spalten = explode(';', trim($zeile));
@@ -73,7 +78,7 @@ class Meldestaende extends \Module
 					foreach($spalten as $spalte)
 					{
 						$daten .= '<'.$zelle.'>';
-						$daten .= utf8_encode($spalte);
+						$daten .= $spalte;
 						$daten .= '</'.$zelle.'>';
 					}
 					$daten .= '</tr>';
